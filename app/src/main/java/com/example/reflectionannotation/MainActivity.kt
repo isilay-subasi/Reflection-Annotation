@@ -1,13 +1,23 @@
 package com.example.reflectionannotation
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.widget.AppCompatButton
 
 class MainActivity : AppCompatActivity() {
+    @KBindTranslateView(value = R.id.button,key = "try")
+    lateinit var tryButton : AppCompatButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        tryButton = findViewById(R.id.button)
+
+        KViewBindTranslator.bindAndTranslate(this)
 
         val student = Student("isil",25,false)
         unknownInput(student)
@@ -15,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("LongLogTag")
     fun unknownInput(input : Any){
 
         //gelen inputu java classa çevirdim.
