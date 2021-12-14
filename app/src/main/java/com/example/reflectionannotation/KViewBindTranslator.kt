@@ -8,7 +8,7 @@ object KViewBindTranslator {
 
     fun bindAndTranslate(target : Activity){
 
-        val language = Locale.getDefault().language
+        val language = Locale.getDefault().language// tr - en
         val Json = TrasnlateJson().getTranslateJson()
 
         for (field in target.javaClass.declaredFields){
